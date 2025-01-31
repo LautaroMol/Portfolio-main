@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Portfolio Lautaro Castellanos</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="./assets/briefcasesolid.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="mat-typography">
+  <SpeedInsights/>
+  <div class="circles-container" id="circles-container"></div>
+  <div class="content-container">
+    <app-sidebar></app-sidebar>
+    <div class="container" id="app-root">
+      <app-root></app-root>
+    </div>
+    <div class="container" id="app-about-me">
+      <app-about-me></app-about-me>
+    </div>
+    <div class="container" id="app-samples">
+      <app-samples></app-samples>
+    </div>
+    <div class="container" id="app-contact">
+      <app-contact></app-contact>
+    </div>
+  </div>
+
+  <script>
+    const numberOfCircles = 50;
+    const circlesContainer = document.getElementById('circles-container');
+
+    document.addEventListener("DOMContentLoaded", () => {
+      for (let i = 0; i < numberOfCircles; i++) {
+        const circle = document.createElement('div');
+        circle.classList.add('circle');
+        circlesContainer.appendChild(circle);
+        animateCircle(circle);
+      }
+    });
+
+    function animateCircle(circle) {
+      const randomSize = Math.random() * 10 + 50; // Random size between 5 and 15 pixels
+      const randomPosition = Math.random() * 100; // Random position in percentage
+      const animationDuration = Math.random() * 10 + 15; // Random animation duration between 15s and 25s
+
+      circle.style.width = `${randomSize}px`;
+      circle.style.height = `${randomSize}px`;
+      circle.style.left = `${randomPosition}%`;
+
+      const animation = circle.animate([
+        { transform: 'translateY(0) rotate(0deg)', opacity: 1, borderRadius: '0' },
+        { transform: 'translateY(-800px) rotate(720deg)', opacity: 0, borderRadius: '50%' }
+      ], {
+        duration: animationDuration * 1000,
+        iterations: Infinity
+      });
+
+      return animation;
+    }
+  </script>
+</body>
+
+</html>

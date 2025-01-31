@@ -1,0 +1,91 @@
+.title {
+  font-size: 2.5em;
+  margin-bottom: 100px;
+  text-align: center;
+  color: #a0a0a0;
+  text-shadow: 2px 2px 2px #404040;
+}
+
+.Examples {
+  text-align: center;
+  color: #a0a0a0;
+  text-shadow: 2px 2px 2px #404040;
+  display: flex;
+  align-items: left;
+  width: 1400px;
+}
+
+.ejemplo {
+  position: relative;
+  overflow: hidden;
+  width: 550px;
+  margin: 0 10px;
+  text-align: left;
+  height: 650px;
+}
+
+.ejemplo p {
+  padding: 5%;
+}
+
+.ejemplo img,
+.ejemplo-video {
+  padding: 5%;
+  width: 400px;
+  height: 300px;
+  filter: brightness(0.9);
+  transition: filter 0.5s ease, transform 0.5s ease;
+  cursor: pointer;
+}
+
+.ejemplo::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  border: 4px solid transparent;
+  border-radius: 10px;
+  animation: pulse 4s infinite;
+}
+
+.ejemplo:hover img,
+.ejemplo:hover .ejemplo-video {
+  filter: brightness(1);
+  transform: scale(1.05);
+  cursor: url('../../assets/externallink.png'), auto;
+}
+
+@keyframes pulse {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ccc;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+.title {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.Examples {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
